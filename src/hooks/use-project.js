@@ -1,11 +1,12 @@
 import { useState, useEffect } from"react";
 
-import getProjects from "../api/get-projects";
+import getProjects from "../api/get-project";
 
-export default function useProjects() {
+export default function useProject(project_id) {
 
     // Here we use the useState hook to create a state variable called projectsand a function to update it called setProjects. We initialize the statevariable with an empty array.
-    const [projects, setProjects] = useState([]);
+    const [project, setProject] = useState([]);
+
 
     // We also create a state variable called isLoading and error to keep track ofthe loading state and any errors that might occur.
 
@@ -14,9 +15,9 @@ export default function useProjects() {
 
     // We use the useEffect hook to fetch the projects from the API and update thestate variables accordingly.// This useEffect will only run once, when the component this hook is used inis mounted.
     useEffect(() => {
-        getProjects()
-        .then((projects) =>{
-            setProjects(projects);
+        getProject(project_id)
+        .then((project) =>{
+            setProject(project);
             setIsLoading(false);
         })
         .catch((error) =>{
@@ -27,6 +28,6 @@ export default function useProjects() {
 
 // Finally, we return the state variables and the error. As the state in thishook changes it will update these values and the component using this hookwill re-render.
 
-    return { projects, isLoading, error };
+    return { project, isLoading, error };
 
 }
