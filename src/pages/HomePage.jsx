@@ -3,6 +3,13 @@ import ProjectCard from "../components/ProjectCard";
 import "./Homepage.css";
 
 function HomePage() {
+    const {projects, isLoading, error }=useProjects()
+    console.log("I am still looking for project: ", isLoading, "!Right now I have", projects, error)
+
+    // if(isLoading) {
+    //     return
+    // }
+
     return (
     <div id="project-list">
         {projects.map((projectData, key) => {
