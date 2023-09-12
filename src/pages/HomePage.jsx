@@ -1,12 +1,12 @@
 import useProjects from "../hooks/use-projects";
 import ProjectCard from "../components/ProjectCard";
-import "./Homepage.css";
+import "./HomePage.css";
 
 function HomePage() {
-    const {projects, isLoading, error }=useProjects()
+    const {projects, isLoading, error } = useProjects()
     console.log("I am still looking for project: ", isLoading, "!Right now I have", projects, error)
 
-    if(isLoading) {
+    if (isLoading) {
         return <div>I am still loading</div>
     }
 
