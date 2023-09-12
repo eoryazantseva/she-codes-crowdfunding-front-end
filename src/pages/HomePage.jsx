@@ -6,9 +6,13 @@ function HomePage() {
     const {projects, isLoading, error }=useProjects()
     console.log("I am still looking for project: ", isLoading, "!Right now I have", projects, error)
 
-    // if(isLoading) {
-    //     return
-    // }
+    if(isLoading) {
+        return <div>I am still loading</div>
+    }
+
+    if (error) {
+        return (<p>{error.message}</p>)
+    }
 
     return (
     <div id="project-list">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from"react";
 
-import getProjects from "../api/get-project";
+import getProject from "../api/get-project";
 
 export default function useProject(project_id) {
 
@@ -16,7 +16,7 @@ export default function useProject(project_id) {
     // We use the useEffect hook to fetch the projects from the API and update thestate variables accordingly.// This useEffect will only run once, when the component this hook is used inis mounted.
     useEffect(() => {
         getProject(project_id)
-        .then((project) =>{
+        .then((project) => {
             setProject(project);
             setIsLoading(false);
         })
