@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap');
+
+:root {
+	--orange: #FC4C02;
+	--blue: #011A70;
+	--purple: #6300AF;
+    --global-color-text: #3F3F3F;
+    --heading-font-family:'Bebas Neue', sans-serif;
+    --default-font-family: 'Raleway', sans-serif;
+}
+
+
+/* CSS Reset */
+
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: var(--default-font-family);
+	/* color: var(--global-color-text); */
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h5,
+h6 {
+    font-family: var(--heading-font-family);
+    letter-spacing: 0.05em;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+	padding: 0;
+    text-decoration: none;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+
+
+/* Global styles */
+
+label, input, textarea, select {
+    display: block;
+    width: 100%;
+}
+input, select, textarea {
+    padding: 8px;
+    border-color: var(grey);
+}
+
+body {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2, h3 {
+    color: var(--purple);
+}
+h2 {
+    font-size: 2rem;
+    margin: 25px 15px;
+}

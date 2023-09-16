@@ -1,0 +1,150 @@
+/* Navigation styling  */
+
+
+@media (min-width:768px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--purple);
+        background-color: white;
+        max-width: 1200px;
+        margin: 15px auto;
+        padding-bottom: 15px;
+    }
+}
+
+
+/* header .logo {
+    margin: 0;
+    height: auto;
+    max-width: 100%;
+    text-align: center;
+}
+header img {
+    max-width: 80%;
+} */
+
+.logo,
+.hamburger-button,
+.mobile-nav {
+    display: block;
+    text-align: center;
+}
+
+.hamburger-button {
+    width: 60px;
+}
+
+
+@media (min-width:768px) {
+    header .logo {
+        margin-left: 20px;
+        max-width: 20%;
+        height: auto;
+    }
+}
+
+
+
+
+/* header .hamburger-button {
+    width: 50px;
+} */
+
+@media (min-width:768px) {
+    header .hamburger-button {
+        display: none;
+    }
+}
+
+
+
+
+.desktop-nav {
+    display: none;
+}
+
+@media (min-width:768px) {
+    .desktop-nav {
+        display: block;
+    }
+    .mobile-nav {
+        display: none;
+    }
+}
+
+
+
+@media (min-width:768px) {
+
+    header nav ul {
+        display: flex;
+        gap: 24px;
+        margin-right: 16px;
+    }
+}
+
+
+header ul a {
+    margin: 0 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--purple);
+    font-family: var(--heading-font-family);
+}
+
+/* header button {
+    all: unset;
+} */
+
+/* For JS hamburger button */
+
+.display-block {
+    display: block;
+}
+
+
+
+.mobile-nav a {
+    padding: 4px 16px;
+}
+
+
+
+.mobile-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--purple);
+    background-color: white;
+    margin: 15px 10px;
+}
+
+
+
+
+a {
+    text-decoration: none;
+    color: var(--global-color-text);
+}
+
+
+
+h3 a {
+    color: var(--purple);
+}
+
+h4 {
+    margin: 15px;
+}
+
+h4, p {
+    font-family: var(--default-font-family);
+}
+
+p {
+    margin: 0 15px;
+}

@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import "./main.css";
+
 
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 import LoginPage from "./pages/LoginPage.jsx";
 
-import NavBar from './components/NavBar';
+
+import NavBar from './components/NavBar/NavBar';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage />},
+      
       // { path: "/about", element: <AboutPage />},
     ],
   },
