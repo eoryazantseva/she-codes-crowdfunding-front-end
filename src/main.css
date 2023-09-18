@@ -86,13 +86,21 @@ body {
     margin: 0 auto;
 }
 
-h1 {
-    font-size: 4rem;
-}
-h2, h3 {
+
+h1, h2, h3 {
+    margin: 25px 15px;
     color: var(--purple);
 }
+h1 {
+    font-size: 3rem;
+}
+
 h2 {
     font-size: 2rem;
     margin: 25px 15px;
+}
+
+main {
+    margin: 32px 108px 0px;
+    padding: 0px 16px;
 }

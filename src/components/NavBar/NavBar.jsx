@@ -37,7 +37,7 @@ function NavBar() {
                             <a>About</a>
                         </li>
                         <li>
-                            <a>Create fundraiser</a>
+                            <Link to="/projects">Create fundraiser</Link>
                         </li>
                         <li>
                             <Link to="/login">Log In</Link>

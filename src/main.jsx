@@ -7,6 +7,7 @@ import "./main.css";
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 import LoginPage from "./pages/LoginPage.jsx";
+import NewProjectPage from "./pages/NewProjectPage.jsx";
 
 
 import NavBar from './components/NavBar/NavBar';
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
       { path: "/project/:id", element: <ProjectPage />},
-      
+      {path: "/projects", element: <NewProjectPage />},
       // { path: "/about", element: <AboutPage />},
     ],
   },

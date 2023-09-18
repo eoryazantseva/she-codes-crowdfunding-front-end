@@ -19,11 +19,27 @@ function ProjectPage() {
     }
 
 
+
+    const dateString = project.date_created
+
+    const formatDate = (dateString) => {
+        const options = { year: "numeric", month: "long", day: "numeric"}
+        return new Date(dateString).toLocaleDateString(undefined, options)
+        }
+    
+    console.log(formatDate(dateString))
+
+
+
     return (
-        <div>
-            <h2>{project.title}</h2>
-            <h3>Created at: {project.date_created}</h3>
+        <main>
+            <h1>{project.title}</h1>
+            <h3>Created: {formatDate(dateString)}</h3>
+            <h3>Organiser:</h3>
+            <img src={project.image} alt="" />
             <h3>{`Status: ${project.is_open}`}</h3>
+            <h4>Project description</h4>
+            <p>{project.description}</p>
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => {
@@ -34,7 +50,7 @@ function ProjectPage() {
                 })}
             </ul>
             <CreatePledge projectId={id} />
-        </div>
+        </main>
     );
 }
 

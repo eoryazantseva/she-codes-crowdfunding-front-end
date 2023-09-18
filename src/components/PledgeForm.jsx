@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import postPledge from '../api/post-pledge'
 
 function CreatePledge(props) {
-    
+
     const navigate = useNavigate()
 
     const [isLoading, setIsLoading] = useState(false)
