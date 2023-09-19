@@ -12,6 +12,7 @@ import SignupPage from './pages/SignupPage';
 
 
 import NavBar from './components/NavBar/NavBar';
+import { AuthProvider } from './components/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { useAuth } from "../../hooks/use-auth";
 import "./NavBar.css";
 import logo from "../../assets/logo.png";
 
@@ -7,6 +8,15 @@ import logo from "../../assets/logo.png";
 
 
 function NavBar() {
+
+    const {auth, setAuth} = useAuth();
+
+    const handleLogout = () => {
+        window.localStorage.removeItem("token");
+        setAuth({ token: null })
+    }
+    
+    console.log(auth)
 
     const [menuOpen, setMenuOpen] = useState(false);
     
@@ -40,7 +50,14 @@ function NavBar() {
                             <Link to="/projects">Create fundraiser</Link>
                         </li>
                         <li>
-                            <Link to="/login">Log In</Link>/<Link to="/users">Sign up</Link>
+                            {auth.token ? (
+                                <Link to="/" onClick={handleLogout}>Log Out</Link>
+                            ) : (
+                                <div>
+                                    <Link to="/login">Log In</Link> 
+                                    <Link to="/users">Sign up</Link>
+                                </div>
+                            )}
                         </li>
                     </ul>
                 </nav>
@@ -57,7 +74,14 @@ function NavBar() {
                             <Link to="/projects">Create fundraiser</Link>
                         </li>
                         <li>
-                            <Link to="/login">Log In</Link> / <Link to="/users">Sign up</Link>
+                        {auth.token ? (
+                                <Link to="/" onClick={handleLogout}>Log Out</Link>
+                            ) : (
+                                <div>
+                                    <Link to="/login">Log In</Link> 
+                                    <Link to="/users">Sign up</Link>
+                                </div>
+                            )}
                         </li>
 
                     </ul>

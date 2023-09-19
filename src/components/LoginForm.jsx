@@ -1,8 +1,12 @@
 import { useState } from "react";
 
 import postLogin from "../api/post-login.js";
+import { useAuth } from "../hooks/use-auth.js";
 
 function LoginForm() {
+
+    const {auth, setAuth} = useAuth();
+
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
@@ -19,12 +23,18 @@ function LoginForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("HANDLE SUBMIT")
         if (credentials.username && credentials.password) {
             postLogin(
                 credentials.username,
                 credentials.password
                 ).then((response) => {
+                    console.log("RESPONSE: ", response)
                     window.localStorage.setItem("token", response.token);
+                    //todo - errors here - setauth is not a func
+                    setAuth({
+                        token: response.token,
+                    });
                 });
         }
     };
