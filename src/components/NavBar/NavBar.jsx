@@ -23,8 +23,8 @@ function NavBar() {
                         <img src={logo} alt="logo" />
                     </a>
                     <button onClick={toggleMenu} className="hamburger-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                         </svg>
                     </button>
                 {/* </div> */}
@@ -40,7 +40,7 @@ function NavBar() {
                             <Link to="/projects">Create fundraiser</Link>
                         </li>
                         <li>
-                            <Link to="/login">Log In</Link>
+                            <Link to="/login">Log In</Link>/<Link to="/users">Sign up</Link>
                         </li>
                     </ul>
                 </nav>
@@ -54,10 +54,10 @@ function NavBar() {
                             <a>About</a>
                         </li>
                         <li>
-                            <a>Create fundraiser</a>
+                            <Link to="/projects">Create fundraiser</Link>
                         </li>
                         <li>
-                            <Link to="/login">Log In</Link>
+                            <Link to="/login">Log In</Link> / <Link to="/users">Sign up</Link>
                         </li>
 
                     </ul>
