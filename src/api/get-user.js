@@ -1,6 +1,6 @@
-async function getUser(user_id) {
+async function getUser(username) {
     // First we create the URL for the request by using the Vite environmentvariable and the API endpoint.
-    const url =`${import.meta.env.VITE_API_URL}/users/${user_id}`;
+    const url =`${import.meta.env.VITE_API_URL}/users/${username}`;
     // Next we call the fetch function and pass in the url and the method. The method is set to `GET` because we are fetching data. Fetch returns a"promise".
     // If the promise "resolves" (i.e., if the back end responds) we will getthe data we need in the `response` variable. If the back end fails to respondthen we'll get an error.
 
@@ -8,7 +8,7 @@ async function getUser(user_id) {
     // We can use the `ok` property on `response` to check if the request wassuccessful.
     // If the request was not successful then we will throw an error...
     if (!response.ok) {
-        const fallbackError =`Error fetching user with id ${user_id}`;
+        const fallbackError =`Error fetching user with username ${username}`;
 
     // Here we use the `await` keyword to signal to Javascript that it shouldn't run this code until `response` gets turned into JSON
     const data = await response.json().catch(() => {

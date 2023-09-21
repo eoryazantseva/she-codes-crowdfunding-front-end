@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { AuthProvider } from './components/AuthProvider';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "./main.css";
 
@@ -12,7 +13,7 @@ import SignupPage from './pages/SignupPage';
 
 
 import NavBar from './components/NavBar/NavBar';
-import { AuthProvider } from './components/AuthProvider';
+
 
 const router = createBrowserRouter([
   {

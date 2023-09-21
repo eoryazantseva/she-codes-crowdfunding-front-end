@@ -1,7 +1,8 @@
 import { useState } from "react";
-
-import postLogin from "../api/post-login.js";
 import { useAuth } from "../hooks/use-auth.js";
+import postLogin from "../api/post-login.js";
+import getUser from "../api/get-user.js";
+
 
 function LoginForm() {
 
@@ -24,6 +25,7 @@ function LoginForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("HANDLE SUBMIT")
+
         if (credentials.username && credentials.password) {
             postLogin(
                 credentials.username,
@@ -31,9 +33,15 @@ function LoginForm() {
                 ).then((response) => {
                     console.log("RESPONSE: ", response)
                     window.localStorage.setItem("token", response.token);
-                    //todo - errors here - setauth is not a func
-                    setAuth({
-                        token: response.token,
+                    
+                    // Fetch user data and update the auth state with username and userId
+                    
+                    getUser(credentials.username).then((userData) => {
+                        setAuth({
+                            token: response.token,
+                            username: userData.username,
+                            userId: userData.id,
+                        });
                     });
                 });
         }
