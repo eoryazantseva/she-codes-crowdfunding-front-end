@@ -13,7 +13,7 @@ export const AuthProvider = (props) => {
     // Here we initialize the context with the token from local storage, thisway if the user refreshes the page we can still have the token in memory.
         token: window.localStorage.getItem("token"),
         username: null,
-        user_id: null,
+        userId: null,
     });
 
 

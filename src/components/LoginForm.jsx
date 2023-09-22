@@ -27,16 +27,15 @@ function LoginForm() {
         console.log("HANDLE SUBMIT")
 
         if (credentials.username && credentials.password) {
-            postLogin(
-                credentials.username,
-                credentials.password
-                ).then((response) => {
+            postLogin(credentials.username, credentials.password)
+                .then((response) => {
                     console.log("RESPONSE: ", response)
                     window.localStorage.setItem("token", response.token);
                     
                     // Fetch user data and update the auth state with username and userId
                     
-                    getUser(credentials.username).then((userData) => {
+                    getUser(credentials.username)
+                        .then((userData) => {
                         setAuth({
                             token: response.token,
                             username: userData.username,

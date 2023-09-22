@@ -1,9 +1,11 @@
 
 import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import useProject from "../hooks/use-project";
 import CreatePledge from "../components/PledgeForm.jsx"
 import deleteProject from "../api/delete-project";
+import getUserById from "../api/get-user-by-id";
 
 function ProjectPage() {
 
@@ -15,6 +17,81 @@ function ProjectPage() {
     console.log("testing project ----", project)
 
     const navigate = useNavigate();
+
+const [organiserUsername, setOrganiserUsername] = useState("");
+const [supporterUsernames, setSupporterUsernames] = useState([]);
+
+
+useEffect(() => {
+    // Function to fetch organiser's username
+    const fetchOrganiserUsername = async () => {
+        if (project && project.owner) {
+            try {
+                // Fetch the user by ID
+                const user = await getUserById(project.owner);
+
+                // Set the organiser's username
+                setOrganiserUsername(user.username);
+            } catch (error) {
+                console.error(
+                    `Error fetching username for user with ID ${project.owner}:`,
+                    error
+                );
+                // Handle the error gracefully
+                setOrganiserUsername("Unknown Organizer");
+            }
+        }
+    };
+
+    // Fetch organizer's username when the project data is available
+    if (project) {
+        fetchOrganiserUsername();
+    }
+}, [project]);
+
+
+
+
+
+
+
+
+useEffect(() => {
+    // Function to fetch supporter usernames for all pledges
+    const fetchSupporterUsernames = async () => {
+        if (project && project.pledges) {
+            const usernames = await Promise.all(
+                project.pledges.map(async (pledgeData) => {
+                    try {
+                        // Fetch the user by ID
+                        const user = await getUserById(pledgeData.supporter);
+
+                        // Check if the supporter is anonymous
+
+                        const supporterUsername = pledgeData.anonymous
+                            ? "Anonymous"
+                            : user.username;
+
+                        return supporterUsername;
+
+                    } catch (error) {
+                        console.error(
+                            `Error fetching username for user with ID ${pledgeData.supporter}:`,
+                            error
+                        );
+                        return "Unknown User"; // Handle the error gracefully
+                    }
+                })
+            );
+            setSupporterUsernames(usernames);
+        }
+    };
+
+    // Fetch supporter usernames when the project data is available
+    if (project) {
+        fetchSupporterUsernames();
+    }
+}, [project]);
 
     if (isLoading) {
         return (<p>loading...</p>)
@@ -52,12 +129,14 @@ function ProjectPage() {
     };
 
 
+    // Create a function to fetch the username of a supporter
+
 
     return (
         <main>
             <h1>{project.title}</h1>
             <h3>Created: {formatDate(dateString)}</h3>
-            <h3>Organiser:</h3>
+            <h3>Organiser: {organiserUsername}</h3>
             <img src={project.image} alt="" />
             <h3>{`Status: ${project.is_open}`}</h3>
             <h4>Project description</h4>
@@ -65,12 +144,11 @@ function ProjectPage() {
             <button onClick={handleDelete}>Delete Project</button>
             <h3>Pledges:</h3>
             <ul>
-                {project.pledges.map((pledgeData, key) => {
-                    return (
-                        <li key={key}>${pledgeData.amount} from {pledgeData.supporter}
-                        </li>
-                    );
-                })}
+                {project.pledges.map((pledgeData, key) => (
+                    <li key={key}>
+                        ${pledgeData.amount} from {supporterUsernames[key]}
+                    </li>
+                ))}
             </ul>
             <CreatePledge projectId={id} />
         </main>
