@@ -1,5 +1,5 @@
-import useProjects from "../hooks/use-projects";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
+import useProjects from "../../hooks/use-projects";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import "./HomePage.css";
 
 

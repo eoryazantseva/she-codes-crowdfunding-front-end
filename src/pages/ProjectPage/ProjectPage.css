@@ -1,0 +1,158 @@
+/* Style the main container */
+main {
+    max-width: 100%;
+    margin: 32px 44px 0px;
+    padding: 0px 16px;
+    font-family: var(--default-font-family);
+    color: var(--global-color-text);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+  /* Style the project title */
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--purple);
+}
+
+  /* Style the date */
+h3 {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #888;
+}
+
+  /* Style the organizer section */
+h3:nth-of-type(2) {
+    font-weight: bold;
+    margin-top: 20px;
+    color: var(--purple);
+}
+
+  /* Style the organizer's username */
+h3:nth-of-type(2)::after {
+    margin-left: 5px;
+}
+
+  /* Style the project image */
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    img {
+      max-width: 70%; /* Adjust the max width for desktop screens */
+    }
+}
+
+  /* Style the project status */
+h3:nth-of-type(3) {
+    font-weight: bold;
+    margin-top: 20px;
+    color: var(--purple);
+}
+
+  /* Style the project description */
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: var(--purple);
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+  /* Style the Delete Project button */
+button {
+    padding: 10px 20px;
+    background-color: var(--purple);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 20px;
+    line-height: 27px;
+    transition: all 100ms ease-in-out;
+    font-size: 16px;
+    border: none;
+}
+
+  /* Style the Pledges section */
+h3:nth-of-type(4) {
+    font-weight: bold;
+    margin-top: 20px;
+    color: var(--purple);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+  /* Style the Create Pledge form */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+
+input[type="checkbox"] {
+    width: auto;
+    margin-top: 10px;
+}
+
+input[type="submit"] {
+    background-color: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 600px) {
+main {
+    padding: 10px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+}

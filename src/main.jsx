@@ -5,11 +5,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import "./main.css";
 
 
-import HomePage from './pages/HomePage';
-import ProjectPage from './pages/ProjectPage';
-import LoginPage from "./pages/LoginPage.jsx";
-import NewProjectPage from "./pages/NewProjectPage.jsx";
-import SignupPage from './pages/SignupPage';
+import HomePage from './pages/HomePage/HomePage';
+import ProjectPage from './pages/ProjectPage/ProjectPage';
+import LoginPage from "./pages/LoginPage/LoginPage.jsx";
+import NewProjectPage from "./pages/NewProjectPage/NewProjectPage.jsx";
+import SignupPage from './pages/SignupPage/SignupPage';
 
 
 import NavBar from './components/NavBar/NavBar';
