@@ -10,9 +10,11 @@ import ProjectPage from './pages/ProjectPage/ProjectPage';
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage.jsx";
 import SignupPage from './pages/SignupPage/SignupPage';
+import UpdateProjectPage from './pages/UpdateProjectPage/UpdateProjectPage';
 
 
 import NavBar from './components/NavBar/NavBar';
+import UpdateProject from './components/UpdateProjectForm';
 
 
 const router = createBrowserRouter([
@@ -25,6 +27,7 @@ const router = createBrowserRouter([
       { path: "/users", element: <SignupPage /> },
       { path: "/project/:id", element: <ProjectPage />},
       {path: "/projects", element: <NewProjectPage />},
+      {path: "/update-project/:id/", element: <UpdateProjectPage />}
       // { path: "/about", element: <AboutPage />},
     ],
   },

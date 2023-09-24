@@ -22,29 +22,41 @@ function LoginForm() {
     };
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("HANDLE SUBMIT")
 
         if (credentials.username && credentials.password) {
-            postLogin(credentials.username, credentials.password)
-                .then((response) => {
-                    console.log("RESPONSE: ", response)
-                    window.localStorage.setItem("token", response.token);
-                    
-                    // Fetch user data and update the auth state with username and userId
-                    
-                    getUser(credentials.username)
-                        .then((userData) => {
-                        setAuth({
-                            token: response.token,
-                            username: userData.username,
-                            userId: userData.id,
-                        });
-                    });
+
+            try {
+                // call postLogin to get the token
+                const response = await postLogin(credentials.username, credentials.password)
+                console.log("RESPONSE: ", response);
+
+
+                //Store the token in the local storage
+                window.localStorage.setItem("token", response.token);
+
+                // Fetch user data and update the auth state with username and userId
+                const userData = await getUser(credentials.username);
+                console.log("USER DATA: ", userData);
+
+                //Store the username and userId in local storage
+                window.localStorage.setItem("username", userData.username);
+                window.localStorage.setItem("userId", userData.id);
+
+
+                //Update the auth state with the token, username, amd userId
+                setAuth({
+                    token: response.token,
+                    username: userData.username,
+                    userId: userData.id,
                 });
+                } catch (error) {
+                    console.error("Error during login: ", error)
+            }
         }
-    };
+    }
 
     return (
         <form>

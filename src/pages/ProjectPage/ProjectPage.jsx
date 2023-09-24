@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./ProjectPage.css";
 import useProject from "../../hooks/use-project";
@@ -133,7 +133,7 @@ function ProjectPage() {
             <h4>About the Project</h4>
             <p>{project.description}</p>
             <button onClick={handleDelete}>Delete Project</button>
-            <button>Update Project</button>
+            <button><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => (

@@ -1,11 +1,11 @@
 async function putProject(project_id, updatedProjectData, token) {
-  const url = `${import.meta.env.VITE_API_URL}/projects/${project_id}`;
-  
+  const url = `${import.meta.env.VITE_API_URL}/projects/${project_id}/`;
+
   const method = "PUT";
 
   const headers = {
     "Content-Type": "application/json",
-    "Authorization": `Token ${token}`,
+    "Authorization": `Token ${window.localStorage.getItem("token")}`,
   };
 
   const body = JSON.stringify(updatedProjectData);
