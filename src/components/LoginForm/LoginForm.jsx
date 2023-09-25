@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/use-auth.js";
 import postLogin from "../../api/post-login.js";
 import getUser from "../../api/get-user.js";
 import "./LoginForm.css"
 
 
+
 function LoginForm() {
 
+
+    const navigate = useNavigate();
     const {auth, setAuth} = useAuth();
 
     const [credentials, setCredentials] = useState({
@@ -53,6 +57,8 @@ function LoginForm() {
                     username: userData.username,
                     userId: userData.id,
                 });
+                //Navigate to the homepage
+                navigate("/")
                 } catch (error) {
                     console.error("Error during login: ", error)
             }

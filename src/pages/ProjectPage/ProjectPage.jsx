@@ -5,6 +5,7 @@ import useProject from "../../hooks/use-project";
 import CreatePledge from "../../components/PledgeForm/PledgeForm.jsx"
 import deleteProject from "../../api/delete-project";
 import getUserById from "../../api/get-user-by-id";
+import { useAuth } from "../../hooks/use-auth";
 
 
 function ProjectPage() {
@@ -17,6 +18,11 @@ function ProjectPage() {
     console.log("testing project ----", project)
 
     const navigate = useNavigate();
+
+    const {auth} = useAuth();
+
+    console.log("Authorization for buttons: ", auth.userId)
+    console.log("PROJECT OWNER: ", project.owner)
 
     const [organiserUsername, setOrganiserUsername] = useState("");
     const [supporterUsernames, setSupporterUsernames] = useState([]);
@@ -121,19 +127,39 @@ function ProjectPage() {
         }
     };
 
-    // Create a state for the updated project data
+
+    const renderUpdateAndDeleteButtons = () => {
+        // Check if the authenticated user is the owner of the project
+        if (parseInt(auth.userId) == parseInt(project.owner)) {
+          // Authenticated user is the owner, render the buttons
+            return (
+                <>
+                    <button className="delete-button" onClick={handleDelete}>
+                    Delete Project
+                    </button>
+                    <button className="update-button">
+                        <Link to={`/update-project/${project.id}`}>Update Project</Link>
+                    </button>
+                </>
+            );
+        }
+        // Authenticated user is not the owner, do not render the buttons
+        return null;
+        };
+
     
 
     return (
         <main>
-            <h1>{project.title}</h1>
-            <h3>Created: {formatDate(dateString)}</h3>
-            <h3>Organiser: {organiserUsername}</h3>
-            <img className="project-image" src={project.image} alt="" />
-            <h4>About the Project</h4>
-            <p>{project.description}</p>
-            <button className="delete-button" onClick={handleDelete}>Delete Project</button>
-            <button className="update-button"><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
+            <div className="about-project">
+                <h1>{project.title}</h1>
+                <h3>Created: {formatDate(dateString)}</h3>
+                <h3>Organiser: {organiserUsername}</h3>
+                <img className="project-image" src={project.image} alt="" />
+                <h4>About the Project</h4>
+                <p>{project.description}</p>
+                {renderUpdateAndDeleteButtons()}
+            </div>
             <h4 className="contributions-header">Contributions:</h4>
             <ul>
                 {project.pledges.map((pledgeData, key) => (

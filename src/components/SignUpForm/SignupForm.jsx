@@ -1,5 +1,6 @@
 import { useState } from "react";
 import postSignup from "../../api/post-signup.js";
+import "./SignUpForm.css"
 
 function SignupForm({ onSuccess }) {
 

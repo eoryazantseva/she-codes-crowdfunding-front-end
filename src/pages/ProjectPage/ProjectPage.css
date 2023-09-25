@@ -7,6 +7,11 @@ main {
     color: var(--global-color-text);
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.about-project{
+    text-align: center;
 }
 
   /* Style the project title */
