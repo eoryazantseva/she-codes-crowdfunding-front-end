@@ -13,41 +13,21 @@
         margin: 15px auto;
         padding-bottom: 15px;
     }
-}
 
-
-/* header .logo {
-    margin: 0;
-    height: auto;
-    max-width: 100%;
-    text-align: center;
-}
-header img {
-    max-width: 80%;
-} */
-
-/* .logo,
-.hamburger-button,
-.mobile-nav {
-    display: block;
-    text-align: center;
-} */
-
-
-@media (min-width:768px) {
     header .logo {
         margin-left: 20px;
         max-width: 20%;
         height: auto;
+        display: flex;
+        justify-content: start;
+    }
+
+    header .logo img {
+        max-width: 70%;
     }
 }
 
 
-
-
-/* header .hamburger-button {
-    width: 50px;
-} */
 
 @media (min-width:768px) {
     header .hamburger-button, header .search-icon {
@@ -81,7 +61,7 @@ header img {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
     header {
         display: grid;
@@ -117,6 +97,8 @@ header img {
     }
 }
 
+
+
 header ul a {
     margin: 0 20px;
     font-size: 20px;
@@ -124,12 +106,6 @@ header ul a {
     color: var(--purple);
     font-family: var(--heading-font-family);
 }
-
-/* header button {
-    all: unset;
-} */
-
-/* For JS hamburger button */
 
 .display-block {
     display: block;

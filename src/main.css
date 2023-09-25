@@ -80,6 +80,10 @@ input, select, textarea {
     border-color: var(grey);
 }
 
+:root {
+    margin: 0 auto;
+}
+
 body {
     background-color: white;
     max-width: 1200px;

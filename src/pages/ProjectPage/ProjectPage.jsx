@@ -2,7 +2,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./ProjectPage.css";
 import useProject from "../../hooks/use-project";
-import CreatePledge from "../../components/PledgeForm.jsx"
+import CreatePledge from "../../components/PledgeForm/PledgeForm.jsx"
 import deleteProject from "../../api/delete-project";
 import getUserById from "../../api/get-user-by-id";
 
@@ -133,8 +133,8 @@ function ProjectPage() {
             <h4>About the Project</h4>
             <p>{project.description}</p>
             <button className="delete-button" onClick={handleDelete}>Delete Project</button>
-            <button className="update-button" ><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
-            <h3>Pledges:</h3>
+            <button className="update-button"><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
+            <h4>Contributions:</h4>
             <ul>
                 {project.pledges.map((pledgeData, key) => (
                     <li key={key}>
@@ -142,6 +142,7 @@ function ProjectPage() {
                     </li>
                 ))}
             </ul>
+            <h4 className="contribute-now-heading">Contribute to this project to help make this dream a reality</h4>
             <CreatePledge projectId={id} />
         </main>
     );

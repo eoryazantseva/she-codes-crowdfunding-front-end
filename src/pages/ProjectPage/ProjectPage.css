@@ -38,17 +38,13 @@ h3:nth-of-type(2)::after {
 
   /* Style the project image */
 .project-image {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     margin-top: 10px;
     border-radius: 8px;
 }
 
-@media screen and (min-width: 768px) {
-    img {
-      max-width: 70%; /* Adjust the max width for desktop screens */
-    }
-}
+
 
   /* Style the project status */
 h3:nth-of-type(3) {
@@ -86,6 +82,11 @@ p {
     border: none;
 }
 
+.update-button a {
+    text-decoration: none;
+    color: white;
+}
+
   /* Style the Pledges section */
 h3:nth-of-type(4) {
     font-weight: bold;
@@ -103,40 +104,6 @@ li {
     margin-bottom: 10px;
 }
 
-  /* Style the Create Pledge form */
-form {
-    margin-top: 20px;
-}
-
-label {
-    font-size: 16px;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="checkbox"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    }
-
-input[type="checkbox"] {
-    width: auto;
-    margin-top: 10px;
-}
-
-input[type="submit"] {
-    background-color: var(--blue);
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
 
 /* Responsive design for smaller screens */
 @media screen and (max-width: 600px) {
@@ -156,4 +123,8 @@ img {
     max-width: 100%;
     height: auto;
 }
+}
+
+.contribute-now-heading {
+    text-align: center;
 }
