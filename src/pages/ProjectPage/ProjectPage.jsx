@@ -132,8 +132,8 @@ function ProjectPage() {
             <img className="project-image" src={project.image} alt="" />
             <h4>About the Project</h4>
             <p>{project.description}</p>
-            <button onClick={handleDelete}>Delete Project</button>
-            <button><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
+            <button className="delete-button" onClick={handleDelete}>Delete Project</button>
+            <button className="update-button" ><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => (

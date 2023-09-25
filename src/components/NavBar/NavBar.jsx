@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useAuth } from "../../hooks/use-auth";
 import "./NavBar.css";
 import logo from "../../assets/logo.png";
+import HamburgerButton from "../HamburgerButton/HamburgerButton";
 
 
 
@@ -26,21 +27,51 @@ function NavBar() {
         setMenuOpen(!menuOpen);
     };
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    }
+
 
     return (
         <div>
             <header>
-                {/* <div id="mobile-header"> */}
-                    <a href="" className="logo">
-                        <img src={logo} alt="logo" />
-                    </a>
-                    <button onClick={toggleMenu} className="hamburger-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-                        </svg>
-                    </button>
-                {/* </div> */}
-                <nav className="desktop-nav">
+                <div className="mobile-nav-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 search-icon">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+                    <Link to="/" className="logo"><img src={logo} alt="logo"/></Link> 
+                    <div className="mobile-nav-right">
+                        <HamburgerButton isOpen={menuOpen} onClick={toggleMenu} />
+                    </div>
+                    <nav className={`mobile-nav ${menuOpen ? "" : "hidden"}`}>
+                    <ul>
+                        <li>
+                            <Link to="/" onClick={closeMenu}>Home</Link>
+                        </li>
+                        <li>
+                            <a onClick={closeMenu}>About</a>
+                        </li>
+                        <li>
+                            <Link to="/projects" onClick={closeMenu}>Create fundraiser</Link>
+                        </li>
+                        <li>
+                        {auth.token ? (
+                            <div>
+                                <Link to="#" onClick={closeMenu}>Hi, {auth.username}</Link>
+                                <Link to="/" onClick={handleLogout}>Log Out</Link>
+                            </div>
+                            ) : (
+                                <div>
+                                    <Link to="/login" onClick={closeMenu}>Log In</Link> 
+                                    <Link to="/users" onClick={closeMenu}>Sign up</Link>
+                                </div>
+                            )}
+                        </li>
+
+                    </ul>
+                </nav>
+                <nav className={`desktop-nav ${menuOpen ? "hidden" : ""}`}>
                     <ul>
                         <li>
                             <Link to="/">Home</Link>
@@ -66,38 +97,6 @@ function NavBar() {
                         </li>
                     </ul>
                 </nav>
-
-                <nav className="mobile-nav">
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <a>About</a>
-                        </li>
-                        <li>
-                            <Link to="/projects">Create fundraiser</Link>
-                        </li>
-                        <li>
-                        {auth.token ? (
-                            <div>
-                                <Link to="#">Hi, {auth.username}</Link>
-                                <Link to="/" onClick={handleLogout}>Log Out</Link>
-                            </div>
-                            ) : (
-                                <div>
-                                    <Link to="/login">Log In</Link> 
-                                    <Link to="/users">Sign up</Link>
-                                </div>
-                            )}
-                        </li>
-
-                    </ul>
-                </nav>
-                {/* <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/login">Log In</Link>
-                </nav> */}
             </header>
             <Outlet />
         </div>

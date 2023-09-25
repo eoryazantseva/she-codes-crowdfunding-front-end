@@ -35,8 +35,9 @@ h3:nth-of-type(2)::after {
     margin-left: 5px;
 }
 
+
   /* Style the project image */
-img {
+.project-image {
     max-width: 100%;
     height: auto;
     margin-top: 10px;
@@ -71,7 +72,7 @@ p {
 }
 
   /* Style the Delete Project button */
-button {
+.update-button, .delete-button {
     padding: 10px 20px;
     background-color: var(--purple);
     color: #fff;

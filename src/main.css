@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap');
 
 :root {
-	--orange: #FC4C02;
+	--light-purple: #8084CB;
 	--blue: #011A70;
 	--purple: #6300AF;
     --global-color-text: #3F3F3F;
@@ -55,10 +55,10 @@ ul {
 	list-style: none;
 }
 
-img {
+/* img {
 	max-width: 100%;
 	height: auto;
-}
+} */
 
 input,
 button,

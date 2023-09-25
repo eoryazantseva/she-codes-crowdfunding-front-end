@@ -26,16 +26,12 @@ header img {
     max-width: 80%;
 } */
 
-.logo,
+/* .logo,
 .hamburger-button,
 .mobile-nav {
     display: block;
     text-align: center;
-}
-
-.hamburger-button {
-    width: 60px;
-}
+} */
 
 
 @media (min-width:768px) {
@@ -54,12 +50,10 @@ header img {
 } */
 
 @media (min-width:768px) {
-    header .hamburger-button {
+    header .hamburger-button, header .search-icon {
         display: none;
     }
 }
-
-
 
 
 .desktop-nav {
@@ -87,6 +81,42 @@ header img {
 }
 
 
+@media (max-width: 768px) {
+
+    header {
+        display: grid;
+        grid-gap: 1rem;
+        align-items: center;
+        width: 100%;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas: "mobile-nav-left mobile-nav-center mobile-nav-right";
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 48rem;
+        margin: 0 auto;
+    }
+
+    .mobile-nav-right {
+        display: flex;
+        justify-content: end;
+    }
+
+    .mobile-nav-left {
+        display: flex;
+        justify-content: start;
+    }
+
+    header img {
+        width: 135px;
+    }
+
+    header .search-icon {
+        width: 35px;
+        color: var(--light-purple);
+    }
+}
+
 header ul a {
     margin: 0 20px;
     font-size: 20px;
@@ -111,18 +141,29 @@ header ul a {
     padding: 4px 16px;
 }
 
-
-
-.mobile-header {
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--purple);
-    background-color: white;
-    margin: 15px 10px;
+h4 {
+    margin: 15px;
 }
 
+h4, p {
+    font-family: var(--default-font-family);
+}
+
+p {
+    margin: 0 15px;
+}
+
+.hidden {
+    display: none;
+}
+.mobile-nav {
+    display: none;
+}
+
+/* Add styles to show the mobile menu when the 'hidden' class is not present */
+.mobile-nav:not(.hidden) {
+    display: block;
+}
 
 
 
@@ -135,16 +176,4 @@ a {
 
 h3 a {
     color: var(--purple);
-}
-
-h4 {
-    margin: 15px;
-}
-
-h4, p {
-    font-family: var(--default-font-family);
-}
-
-p {
-    margin: 0 15px;
 }
