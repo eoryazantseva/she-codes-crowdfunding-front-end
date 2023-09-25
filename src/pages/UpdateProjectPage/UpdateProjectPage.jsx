@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import UpdateProject from "../../components/UpdateProjectForm";
 import useProject from "../../hooks/use-project";
+import "./UpdateProjectPage.css";
 
 
 function UpdateProjectPage() {
@@ -19,10 +20,10 @@ function UpdateProjectPage() {
     return (
         <div>
             {success ? (
-                <h2>The project was updated</h2>
+                <h1>The project was updated</h1>
             ) : project ? (
                 <div>
-                    <h2>Update Project </h2>
+                    <h2 className="update-project-header">Update Project </h2>
                     <UpdateProject project={project} onSuccess={handleSuccess} /> {/* Pass the project prop */}
                 </div>
             ) : isLoading ? (

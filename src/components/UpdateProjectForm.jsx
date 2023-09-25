@@ -60,66 +60,76 @@ function UpdateProject({project}) {
     }
 
     return (
-        <form onSubmit={handleUpdateProject}>
-            <div>
-                <label htmlFor="title">Project Title</label>
-                <input 
-                type="text" 
-                id="title"
-                value={updatedProjectData.title}
-                onChange={(e) =>
-                    setUpdatedProjectData({...updatedProjectData, title: e.target.value})
-                }
-                />
-            </div>
-            <div>
-                <label htmlFor="description">Description</label>
-                <input 
-                type="text" 
-                id="description" 
-                value={updatedProjectData.description}
-                onChange={(e) =>
-                    setUpdatedProjectData({...updatedProjectData, description: e.target.value })
-                }
-                />
-            </div>
-            <div>
-                <label htmlFor="image">Image</label>
-                <input 
-                type="text" 
-                id="image" 
-                value={updatedProjectData.image}
-                onChange={(e) =>
-                    setUpdatedProjectData({...updatedProjectData, image: e.target.value })
-                }
-                />
-            </div>
-            <div>
-                <label htmlFor="goal">Goal</label>
-                <input 
-                type="number" 
-                id="goal"
-                value={updatedProjectData.goal}
-                onChange={(e) =>
-                    setUpdatedProjectData({...updatedProjectData, goal: e.target.value })
-                }
-                />
-            </div>
-            <div>
-                <label htmlFor='is_open'>The project is active</label>
-                <input
-                type="checkbox"
-                id="is_open"
-                onChange={(e) =>
-                    setUpdatedProjectData({...updatedProjectData, is_open: e.target.checked })
-                }
-                />
-            </div>
-            <button type="submit" onClick={handleUpdateProject} disabled={isLoading}>
-                {isLoading ? "Updating..." : "Save Changes"}
-            </button>
-            {error && <p className='error-message'>{error}</p>}
-        </form>
+        <div className='form-container'>
+            <form onSubmit={handleUpdateProject}>
+                <div>
+                    <label htmlFor="title" className='form-label'>Project Title</label>
+                    <input 
+                    type="text" 
+                    id="title"
+                    className='form-input'
+                    value={updatedProjectData.title}
+                    onChange={(e) =>
+                        setUpdatedProjectData({...updatedProjectData, title: e.target.value})
+                    }
+                    />
+                </div>
+                <div>
+                    <label htmlFor="description" className='form-label'>Description</label>
+                    <textarea 
+                    type="text" 
+                    id="description" 
+                    className='form-input'
+                    rows={10}
+                    value={updatedProjectData.description}
+                    onChange={(e) =>
+                        setUpdatedProjectData({...updatedProjectData, description: e.target.value })
+                    }
+                    />
+                </div>
+                <div>
+                    <label htmlFor="image" className='form-label'>Image</label>
+                    <input 
+                    type="text" 
+                    id="image" 
+                    className='form-input'
+                    value={updatedProjectData.image}
+                    onChange={(e) =>
+                        setUpdatedProjectData({...updatedProjectData, image: e.target.value })
+                    }
+                    />
+                </div>
+                <div>
+                    <label htmlFor="goal" className='form-label'>Goal</label>
+                    <input 
+                    type="number" 
+                    id="goal"
+                    className='form-input'
+                    value={updatedProjectData.goal}
+                    onChange={(e) =>
+                        setUpdatedProjectData({...updatedProjectData, goal: e.target.value })
+                    }
+                    />
+                </div>
+                <div className='checkbox-container'>
+
+                    <input
+                    type="checkbox"
+                    id="is_open"
+                    onChange={(e) =>
+                        setUpdatedProjectData({...updatedProjectData, is_open: e.target.checked })
+                    }
+                    />
+                    <label htmlFor='is_open' className='checkbox-label'>The project is active</label>
+                </div>
+                <div className='button-container'>
+                    <button type="submit" onClick={handleUpdateProject} disabled={isLoading} className='submit-button'>
+                        {isLoading ? "Updating..." : "Save Changes"}
+                    </button>
+                </div>
+                {error && <p className='error-message'>{error}</p>}
+            </form>
+        </div>
     );
 }
 

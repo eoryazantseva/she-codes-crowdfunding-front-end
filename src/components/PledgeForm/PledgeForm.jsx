@@ -47,7 +47,7 @@ function CreatePledge(props) {
     }
 
     return (
-        <div className='pledge-form-container'>
+        <div className='form-container'>
             <form onSubmit={handleSubmit}>
             <div>
                 <label className='form-label' htmlFor="amount">Amount</label>

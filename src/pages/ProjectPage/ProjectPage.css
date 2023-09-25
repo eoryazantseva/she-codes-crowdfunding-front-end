@@ -125,6 +125,62 @@ img {
 }
 }
 
+.contributions-header {
+    font-size: 20px;
+    margin: 50px 0 25px;
+}
+
 .contribute-now-heading {
     text-align: center;
+    margin: 50px 0 25px
+}
+
+
+
+/* Style the pledge container */
+.pledge-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+  /* Style the supporter name */
+.supporter-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+/* Style the pledge amount */
+.pledge-amount {
+    font-size: 16px;
+    color: #888;
+}
+
+  /* Style the comment */
+.comment {
+    font-size: 16px;
+    margin-top: 10px;
+    color: var(--global-color-text);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .pledge-container {
+        padding: 12px;
+    }
+
+    .supporter-name {
+        font-size: 16px;
+    }
+
+    .pledge-amount {
+        font-size: 14px;
+    }
+
+    .comment {
+        font-size: 14px;
+    }
 }

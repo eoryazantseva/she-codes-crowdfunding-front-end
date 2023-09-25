@@ -134,11 +134,13 @@ function ProjectPage() {
             <p>{project.description}</p>
             <button className="delete-button" onClick={handleDelete}>Delete Project</button>
             <button className="update-button"><Link to={`/update-project/${project.id}`}>Update Project</Link></button>
-            <h4>Contributions:</h4>
+            <h4 className="contributions-header">Contributions:</h4>
             <ul>
                 {project.pledges.map((pledgeData, key) => (
-                    <li key={key}>
-                        ${pledgeData.amount} from {supporterUsernames[key]}
+                    <li key={key} className="pledge-container">
+                        <div className="supporter-name"> {supporterUsernames[key]} </div>
+                        <div className="pledge-amount">${pledgeData.amount}</div>
+                        <div className="comment">{pledgeData.comment}</div>
                     </li>
                 ))}
             </ul>

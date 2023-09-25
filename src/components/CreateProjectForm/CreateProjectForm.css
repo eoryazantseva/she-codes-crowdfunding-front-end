@@ -32,19 +32,3 @@
     border: none;
 }
 
-.checkbox-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center; /* Vertically center items */
-    margin-bottom: 10px; /* Add spacing between checkbox and other inputs */
-}
-
-.checkbox-label {
-    margin-left: 10px; /* Add space between the checkbox and label text */
-    font-weight: bold;
-    color: var(--purple);
-}
-
-#is_open {
-    flex: 1;
-}
