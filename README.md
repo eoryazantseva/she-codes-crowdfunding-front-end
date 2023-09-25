@@ -19,6 +19,12 @@ https://wishfrog.netlify.app/
 
 ## Screeshot of a project with pledges
 
-## A screenshot of the resulting page when an unauthorized user attempts to edit a project
+![image](https://github.com/eoryazantseva/she-codes-crowdfunding-front-end/assets/93800981/eea840d4-94a3-4b64-a064-f9320642e150)
+
+
+## A screenshot of the resulting page when an unauthorized user attempts to edit a project (An unauthoriswed user do not see Update and Delete Buttons) 
+
+![image](https://github.com/eoryazantseva/she-codes-crowdfunding-front-end/assets/93800981/aecd4a45-1c90-4b47-8076-0e866c8ca266)
+
 
 
