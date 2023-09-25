@@ -4,6 +4,7 @@ import { useAuth } from "../../hooks/use-auth";
 import "./NavBar.css";
 import logo from "../../assets/logo.png";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import Footer from "../Footer/footer";
 
 
 
@@ -33,7 +34,7 @@ function NavBar() {
 
 
     return (
-        <div>
+        <div className="main-container">
             <header>
                 <div className="mobile-nav-left">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 search-icon">
@@ -99,6 +100,7 @@ function NavBar() {
                 </nav>
             </header>
             <Outlet />
+            <Footer />
         </div>
     );
 }

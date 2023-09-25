@@ -10,12 +10,7 @@
     margin-bottom: 5px;
     font-weight: bold;
     color: var(--purple);
-}
-
-label {
     font-family: var(--default-font-family);
-    margin-top: 15px;
-    margin-bottom: 10px;
 }
 
 .form-input {
@@ -48,4 +43,8 @@ label {
     margin-left: 10px; /* Add space between the checkbox and label text */
     font-weight: bold;
     color: var(--purple);
+}
+
+#is_open {
+    flex: 1;
 }

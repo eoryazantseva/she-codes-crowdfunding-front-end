@@ -1,0 +1,21 @@
+footer {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+small {
+    text-align: center;
+    background-color: white;
+    margin-top: auto;
+    padding: 40px 5px 10px;
+    color: var(--purple);
+}
+
+@media (min-width: 992px) {
+    footer {
+        width:80%;
+        margin: 0 auto;
+    }
+}

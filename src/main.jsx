@@ -11,11 +11,8 @@ import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage.jsx";
 import SignupPage from './pages/SignupPage/SignupPage';
 import UpdateProjectPage from './pages/UpdateProjectPage/UpdateProjectPage';
-
-
-
 import NavBar from './components/NavBar/NavBar';
-import UpdateProject from './components/UpdateProjectForm';
+
 
 
 const router = createBrowserRouter([
@@ -39,9 +36,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-
         <RouterProvider router={router} />
-
     </AuthProvider>
   </React.StrictMode>,
 );

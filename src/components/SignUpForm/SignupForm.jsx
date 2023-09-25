@@ -1,5 +1,5 @@
 import { useState } from "react";
-import postSignup from "../api/post-signup.js";
+import postSignup from "../../api/post-signup.js";
 
 function SignupForm({ onSuccess }) {
 
@@ -38,26 +38,27 @@ function SignupForm({ onSuccess }) {
 
 
     return (
-        
+        <div className="form-container">
             <form>
                 <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" placeholder="Enter username" onChange={handleChange} value={credentials.username}/>
+                    <label htmlFor="username" className="form-label">Username:</label>
+                    <input type="text" id="username" placeholder="Enter username" onChange={handleChange} value={credentials.username} className="form-input"/>
                 </div>
                 
                 <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" placeholder="Password" onChange={handleChange} value={credentials.password}/>
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" id="password" placeholder="Password" onChange={handleChange} value={credentials.password} className="form-input"/>
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="text" id="email" placeholder="Enter email address" onChange={handleChange} value={credentials.email} />
+                    <label htmlFor="email" className="form-label">Email:</label>
+                    <input type="text" id="email" placeholder="Enter email address" onChange={handleChange} value={credentials.email} className="form-input" />
                 </div>
                 {isLoading && <p>Loading</p>}
                 {error && <p>Error: {error}</p>} {/* Display error if it exists */}
-                <button type="submit" onClick={handleSubmit}>Sign up</button>
+                <button type="submit" onClick={handleSubmit} className="submit-button">Sign up</button>
             </form>
-            );
-        }
+        </div>
+    );
+}
 
 export default SignupForm;

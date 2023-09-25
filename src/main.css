@@ -19,6 +19,7 @@ html {
 	font-family: var(--default-font-family);
 	/* color: var(--global-color-text); */
 	scroll-behavior: smooth;
+    height: 100%;
 }
 
 *,
@@ -80,14 +81,16 @@ input, select, textarea {
     border-color: var(grey);
 }
 
-:root {
+#root {
     margin: 0 auto;
+    height: 100%;
 }
 
 body {
     background-color: white;
     max-width: 1200px;
     margin: 0 auto;
+    height: 100%;
 }
 
 
