@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import NewProjectPage from "./pages/NewProjectPage/NewProjectPage.jsx";
 import SignupPage from './pages/SignupPage/SignupPage';
 import UpdateProjectPage from './pages/UpdateProjectPage/UpdateProjectPage';
+import About from './pages/AboutPage/AboutPage';
 import NavBar from './components/NavBar/NavBar';
 
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: "/project/:id", element: <ProjectPage />},
       {path: "/projects", element: <NewProjectPage />},
       {path: "/update-project/:id/", element: <UpdateProjectPage />},
+      {path: "/about", element: <About />},
       {path: '*', element: <NotFound />},
       // { path: "/about", element: <AboutPage />},
     ],

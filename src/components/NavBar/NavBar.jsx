@@ -51,7 +51,7 @@ function NavBar() {
                             <Link to="/" onClick={closeMenu}>Home</Link>
                         </li>
                         <li>
-                            <a onClick={closeMenu}>About</a>
+                            <Link to="/about" onClick={closeMenu}>About</Link>
                         </li>
                         <li>
                             <Link to="/projects" onClick={closeMenu}>Create fundraiser</Link>
@@ -78,7 +78,7 @@ function NavBar() {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <a>About</a>
+                            <Link to="/about">About</Link>
                         </li>
                         <li>
                             <Link to="/projects">Create fundraiser</Link>
