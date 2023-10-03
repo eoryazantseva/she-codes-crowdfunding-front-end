@@ -4,6 +4,7 @@ import { useAuth } from "../../hooks/use-auth";
 import "./NavBar.css";
 import logo from "../../assets/logo.png";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import Footer from "../Footer/footer";
 
 
 
@@ -99,7 +100,7 @@ function NavBar() {
                 </nav>
             </header>
             <Outlet />
-
+            <Footer />
         </div>
     );
 }
